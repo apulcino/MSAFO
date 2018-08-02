@@ -1,3 +1,4 @@
+const os = require('os');
 const fetch = require('node-fetch');
 const MSRegistryUrl = 'http://localhost:5555/registry';
 exports.MSTypeEnum = Object.freeze({
@@ -20,8 +21,24 @@ exports.declareService = function (type, host, port) {
         }).then(response => {
             resolve(true);
         }).catch(err => {
-            console.log('declareService : Error : ', err);
+            console.log('declareService : Error : ', err.message);
             resolve(false);
         });
     });
+};
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+exports.getServerIpAddress = function () {
+    const ifaces = os.networkInterfaces();
+    for (prop in ifaces) {
+        var iface = ifaces[prop];
+        console.log(prop + " => " + JSON.stringify(ifaces[prop]));
+        for (let i = 0; i < iface.length; i++) {
+            if (iface[i].family === "IPv4" && iface[i].internal === false) {
+                return iface[i].address;
+            }
+        }
+    }
+    return '';
 };
