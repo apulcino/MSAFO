@@ -1,0 +1,44 @@
+http://127.0.0.1:5555/registry/list
+[
+    {"type":"1","url":"http://158.50.163.7:56065","host":"158.50.163.7","port":"56065","pathname":"/api/events","status":true,"cptr":6},
+    {"type":"2","url":"http://158.50.163.7:56066","host":"158.50.163.7","port":"56066","pathname":"/api/selections","status":true,"cptr":5},
+    {"type":"3","url":"http://158.50.163.7:56067","host":"158.50.163.7","port":"56067","pathname":"/api/user","status":true,"cptr":5}
+]
+
+
+http://158.50.163.7:8080/afpforum/api/events?lang=fr
+[]
+http://158.50.163.7:56065/api/events?lang=fr
+[]
+
+http://158.50.163.7:8080/afpforum/api/events/events-by-sequence/CUY01?lang=fr
+[{"sequenceId":"CUY01","title":"Sanctions force unified Korea teams to go no-brand at Asiad","important":false}]
+http://158.50.163.7:56065/api/events/events-by-sequence/CUY01?lang=fr
+[{"sequenceId":"CUY01","title":"Sanctions force unified Korea teams to go no-brand at Asiad","important":false}]
+
+
+http://158.50.163.7:8080/afpforum/api/selections?auth=905B...D96F
+[...]
+
+http://158.50.163.7:56066/api/selections?auth=905B...D96F
+[
+    {"Id":"d4f23f5d-69fc-4d29-84d7-053ac10c16af","Name":"default","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=326D21F9A539FD7222DA6C17918C40DF61DBF3D13E2ABEBEEB5A7C7F5ECABA70E9C1D04E2E1299A0&mui=1","IsDeletable":false,"IsOwner":true,"DocumentCount":167},
+    {"Id":"1d8116d2-2ae4-47ea-a970-99adf2ddacc7","Name":"aa","ContributionScope":"OwnerOnly","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":159},{"Id":"66c57b6d-6e92-4a02-b96e-a97ac4e2b45b","Name":"Bonjour","ContributionScope":"EnterpriseUsers","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":21},
+    {"Id":"4bf03423-d4a4-45e7-8e69-66727bfa101f","Name":"Iss","ContributionScope":"OwnerOnly","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":115},{"Id":"66e7e5d8-0bdf-419c-935e-d0feda284b9e","Name":"Mode","ContributionScope":"EnterpriseUsers","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=68CD3403F34C2EA454FDC111CCCA50154CC744C7A2654EE2F5F18DE50F0C963F5E779097D7946AF6&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":13},
+    {"Id":"e5ed19c9-bb82-436e-bd2f-0935e7d9c26e","Name":"RTL","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=A5AF0E3D31C6E7197E7B9364CC259F56D5A40AA2AAA771562776217B9196724D6BE5B1A94588A552&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":2},
+    {"Id":"6d066ed3-334d-4ded-8c06-6cfcc9267c11","Name":"spain","ContributionScope":"OwnerOnly","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":160},
+    {"Id":"013eea11-24bc-45a9-89f4-15b1ab602da8","Name":"Sport","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=A0F2817314133222BA4622963521892B5142EFB4CAB8F43377F4C51E85C7F3AE810D48DF07319777&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":13},
+    {"Id":"7e59709a-1c34-47aa-901b-a2046ce914b9","Name":"test2","ContributionScope":"OwnerOnly","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":3},
+    {"Id":"b68ea8f3-f208-44e0-922f-6b0130b3bac3","Name":"textes","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=78CC5297BFFC3ADD1A523A18403E40B4F9309A38E7E68880479C11D652FCB8923EB55F908455C817&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":3},
+    {"Id":"fb613dd1-aa9e-4720-aa23-615d56208fe9","Name":"tordu","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=2CCE4986DF9874621C5C5C0EE3A5365911BE9C5ECA9261C875BC432780FE2A238F933D5027012841&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":7}
+]
+
+http://158.50.163.7:8080/afpforum/api/user/checktoken/905B1248EF82CE5F92C7CAC7755EC612191AACBB35B8949E25A2C8F89A6A85D66545B420D92843A9845E59D4F7A627468641906E7041102A8F07491AF15EF6587C3CFCCF94A3E033A4ADEED182ECD96F
+staus: 200 ||403
+http://158.50.163.7:56067/api/user/checktoken/905B1248EF82CE5F92C7CAC7755EC612191AACBB35B8949E25A2C8F89A6A85D66545B420D92843A9845E59D4F7A627468641906E7041102A8F07491AF15EF6587C3CFCCF94A3E033A4ADEED182ECD96F
+staus: 200 ||403
+
+http://158.50.163.7:8080/afpforum/api/user/products/Text?auth=905B1248EF82CE5F92C7CAC7755EC612191AACBB35B8949E25A2C8F89A6A85D66545B420D92843A9845E59D4F7A627468641906E7041102A8F07491AF15EF6587C3CFCCF94A3E033A4ADEED182ECD96F
+[{...},{...}]
+http://158.50.163.7:56067/api/user/products/Text?auth=905B1248EF82CE5F92C7CAC7755EC612191AACBB35B8949E25A2C8F89A6A85D66545B420D92843A9845E59D4F7A627468641906E7041102A8F07491AF15EF6587C3CFCCF94A3E033A4ADEED182ECD96F
+[{...},{...}]
