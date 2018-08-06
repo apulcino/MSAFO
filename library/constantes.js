@@ -6,6 +6,11 @@ exports.MCastAppAddr = "230.185.192.108";
 exports.MSRegistryUrl = process.env.MS_REGISTRY_URL || 'http://localhost:5555/registry';
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
+exports.MSMessageTypeEnum = Object.freeze({
+    "regAnnonce": 1
+});
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 exports.MSTypeEnum = Object.freeze({
     "afoEvents": 1,
     "afoPaniers": 2,
