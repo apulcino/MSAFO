@@ -1,6 +1,9 @@
 const os = require('os');
 const fetch = require('node-fetch');
-const MSRegistryUrl = process.env.MS_REGISTRY_URL || 'http://localhost:5555/registry';
+
+exports.MCastAppPort = 41848;
+exports.MCastAppAddr = "230.185.192.108";
+exports.MSRegistryUrl = process.env.MS_REGISTRY_URL || 'http://localhost:5555/registry';
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 exports.MSTypeEnum = Object.freeze({
@@ -19,8 +22,23 @@ exports.MSPathnameEnum = Object.freeze({
 //------------------------------------------------------------------------------
 // http://localhost:5555/registry/declare/MSType?url=....
 //------------------------------------------------------------------------------
-exports.declareService = function (type, host, port, pathname) {
-    const url = MSRegistryUrl + '/declare/' + type + '?host=' + host + '&port=' + port + '&pathname=' + pathname;
+exports.declareService = function (_MSRegistryUrlArray, type, host, port, pathname) {
+    _MSRegistryUrlArray = _MSRegistryUrlArray || [];
+    if (0 === _MSRegistryUrlArray.length) {
+        return;
+    }
+    _MSRegistryUrlArray.forEach((_MSRegistryUrl) => {
+        declareServiceOnce(_MSRegistryUrl, type, host, port, pathname);
+    });
+};
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+declareServiceOnce = function (_MSRegistryUrl, type, host, port, pathname) {
+    _MSRegistryUrl = _MSRegistryUrl || '';
+    if (0 === _MSRegistryUrl.length) {
+        return;
+    }
+    const url = _MSRegistryUrl + '/registry/declare/' + type + '?host=' + host + '&port=' + port + '&pathname=' + pathname;
     console.log('GET : ', url);
     return new Promise(function (resolve, reject) {
         fetch(url, {
@@ -38,8 +56,8 @@ exports.declareService = function (type, host, port, pathname) {
 // http://localhost:5555/registry/list
 // [{"type":"3","url":"http://158.50.163.7:3000","pathname":"/api/user","status":true,"cptr":331}]
 //------------------------------------------------------------------------------
-exports.getServiceList = function () {
-    const url = MSRegistryUrl + '/list';
+exports.getServiceList = function (MSRegistryUrl) {
+    const url = MSRegistryUrl + '/registry/list';
     console.log('GET : ', url);
     return new Promise(function (resolve, reject) {
         fetch(url, {
