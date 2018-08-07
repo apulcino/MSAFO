@@ -58,11 +58,12 @@ declareServiceOnce = function (_MSRegistryUrl, type, host, port, pathname) {
     });
 };
 //------------------------------------------------------------------------------
-// http://localhost:5555/registry/list
+// Demander à la Registry indiquée, la liste des services disponibles
+// GET http://.../registry/list
 // [{"type":"3","url":"http://158.50.163.7:3000","pathname":"/api/user","status":true,"cptr":331}]
 //------------------------------------------------------------------------------
 exports.getServiceList = function (MSRegistryUrl) {
-    const url = MSRegistryUrl + '/registry/list';
+    const url = MSRegistryUrl.regUrl + '/registry/list';
     console.log('GET : ', url);
     return new Promise(function (resolve, reject) {
         fetch(url, {
@@ -74,11 +75,12 @@ exports.getServiceList = function (MSRegistryUrl) {
             resolve(json);
         }).catch(err => {
             console.log('declareService : Error : ', err.message);
-            resolve([]);
+            reject(MSRegistryUrl);
         });
     });
 };
 //------------------------------------------------------------------------------
+// Retrouver l'adresse IPV4 du serveur local
 //------------------------------------------------------------------------------
 exports.getServerIpAddress = function () {
     const ifaces = os.networkInterfaces();
@@ -94,6 +96,7 @@ exports.getServerIpAddress = function () {
     return '';
 };
 //------------------------------------------------------------------------------
+// Rechercher l'url du service qui sait répondre à cette API
 //------------------------------------------------------------------------------
 exports.findActiveMService = function (MServiceList, reqUrl) {
     MServiceList = MServiceList || [];
