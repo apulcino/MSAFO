@@ -1,7 +1,7 @@
-start "apigateway" node c:/Users/apulcino/MSAFO/apigateway/server.js
-start "aforegistry" node c:/Users/apulcino/MSAFO/aforegistry/server.js
-rem start "aforegistry" node c:/Users/apulcino/MSAFO/aforegistry/server.js
-start "afoevents" node c:/Users/apulcino/MSAFO/afoevents/server.js
-start "afoevents" node c:/Users/apulcino/MSAFO/afoevents/server.js
-rem start "afopaniers" node c:/Users/apulcino/MSAFO/afopaniers/server.js
-rem start "authent" node c:/Users/apulcino/MSAFO/authent/server.js
+start "apigateway" node ./apigateway/server.js
+start "aforegistry" node ./aforegistry/server.js
+rem start "aforegistry" node ./aforegistry/server.js
+start "afoevents" node ./afoevents/server.js
+start "afoevents" node ./afoevents/server.js
+rem start "afopaniers" node ./afopaniers/server.js
+rem start "authent" node ./authent/server.js
