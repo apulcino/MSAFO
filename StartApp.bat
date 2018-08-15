@@ -1,7 +1,22 @@
 start "apigateway" node ./apigateway/server.js
 start "aforegistry" node ./aforegistry/server.js
-rem start "aforegistry" node ./aforegistry/server.js
 start "afoevents" node ./afoevents/server.js
+
+start "aforegistry" node ./aforegistry/server.js
 start "afoevents" node ./afoevents/server.js
-rem start "afopaniers" node ./afopaniers/server.js
-rem start "authent" node ./authent/server.js
+start "afopaniers" node ./afopaniers/server.js
+start "afopaniers" node ./afopaniers/server.js
+start "authent" node ./authent/server.js
+start "authent" node ./authent/server.js
+
+
+xterm -e node ./apigateway/server.js &
+xterm -e node ./aforegistry/server.js &
+xterm -e node ./afoevents/server.js &
+
+xterm -e node ./aforegistry/server.js &
+xterm -e node ./afoevents/server.js &
+xterm -e node ./afopaniers/server.js &
+xterm -e node ./afopaniers/server.js &
+xterm -e node ./authent/server.js &
+xterm -e node ./authent/server.js &
