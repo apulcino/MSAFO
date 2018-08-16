@@ -55,35 +55,42 @@ mkdir MSAFO
 cd MSAFO
 git init
 sudo git pull ../../Dropbox/GITRepos/MSAFO/root
+sudo git remote add origin ../../Dropbox/GITRepos/MSAFO/root
 mkdir library
 cd library
 git init
 sudo git pull ../../../Dropbox/GITRepos/MSAFO/library
+sudo git remote add origin ../../../Dropbox/GITRepos/MSAFO/library
 cd ..
 mkdir authent
 cd authent
 git init
 sudo git pull ../../../Dropbox/GITRepos/MSAFO/authent
+sudo git remote add origin ../../../Dropbox/GITRepos/MSAFO/authent
 cd ..
 mkdir afoevents
 cd afoevents
 git init
 sudo git pull ../../../Dropbox/GITRepos/MSAFO/afoevents
+sudo git remote add origin ../../../Dropbox/GITRepos/MSAFO/afoevents
 cd ..
 mkdir afopaniers
 cd afopaniers
 git init
 sudo git pull ../../../Dropbox/GITRepos/MSAFO/afopaniers
+sudo git remote add origin ../../../Dropbox/GITRepos/MSAFO/afopaniers
 cd ..
 mkdir aforegistry
 cd aforegistry
 git init
 sudo git pull ../../../Dropbox/GITRepos/MSAFO/aforegistry
+sudo git remote add origin ../../../Dropbox/GITRepos/MSAFO/aforegistry
 cd ..
 mkdir apigateway
 cd apigateway
 git init
 sudo git pull ../../../Dropbox/GITRepos/MSAFO/apigateway
+sudo git remote add origin ../../../Dropbox/GITRepos/MSAFO/apigateway
 
 rem ##########################################################
 rem LINUX WORK
