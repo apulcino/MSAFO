@@ -1,27 +1,27 @@
 http://127.0.0.1:8080/afpforum/registry/list (private API)
-http://127.0.0.1:50283/registry/list
+http://127.0.0.1:XXXXX/registry/v1/list
 [
-    {"type":"1","url":"http://158.50.163.7:56065","host":"158.50.163.7","port":"56065","pathname":"/api/events","status":true,"cptr":6},
-    {"type":"2","url":"http://158.50.163.7:56066","host":"158.50.163.7","port":"56066","pathname":"/api/selections","status":true,"cptr":5},
-    {"type":"3","url":"http://158.50.163.7:56067","host":"158.50.163.7","port":"56067","pathname":"/api/user","status":true,"cptr":5}
+    {"type":"1","url":"http://158.50.163.7:56065","host":"158.50.163.7","port":"56065","pathname":"/api/v1/events","status":true,"cptr":6},
+    {"type":"2","url":"http://158.50.163.7:56066","host":"158.50.163.7","port":"56066","pathname":"/api/v1/selections","status":true,"cptr":5},
+    {"type":"3","url":"http://158.50.163.7:56067","host":"158.50.163.7","port":"56067","pathname":"/api/v1/user","status":true,"cptr":5}
 ]
 
 
-http://158.50.163.7:8080/afpforum/api/events?lang=fr
+http://158.50.163.7:8080/afpforum/api/v1/events?lang=fr
 []
-http://158.50.163.7:56065/api/events?lang=fr
+http://158.50.163.7:XXXXX/api/v1/events?lang=fr
 []
 
-http://158.50.163.7:8080/afpforum/api/events/events-by-sequence/CUY01?lang=fr
+http://158.50.163.7:8080/afpforum/api/v1/events/events-by-sequence/CUY01?lang=fr
 [{"sequenceId":"CUY01","title":"Sanctions force unified Korea teams to go no-brand at Asiad","important":false}]
-http://158.50.163.7:56065/api/events/events-by-sequence/CUY01?lang=fr
+http://158.50.163.7:56065/api/v1/events/events-by-sequence/CUY01?lang=fr
 [{"sequenceId":"CUY01","title":"Sanctions force unified Korea teams to go no-brand at Asiad","important":false}]
 
 
-http://158.50.163.7:8080/afpforum/api/selections?auth=905B...D96F
+http://158.50.163.7:8080/afpforum/api/v1/selections?auth=905B...D96F
 [...]
 
-http://158.50.163.7:56066/api/selections?auth=905B...D96F
+http://158.50.163.7:56066/api/v1/selections?auth=905B...D96F
 [
     {"Id":"d4f23f5d-69fc-4d29-84d7-053ac10c16af","Name":"default","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=326D21F9A539FD7222DA6C17918C40DF61DBF3D13E2ABEBEEB5A7C7F5ECABA70E9C1D04E2E1299A0&mui=1","IsDeletable":false,"IsOwner":true,"DocumentCount":167},
     {"Id":"1d8116d2-2ae4-47ea-a970-99adf2ddacc7","Name":"aa","ContributionScope":"OwnerOnly","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":159},{"Id":"66c57b6d-6e92-4a02-b96e-a97ac4e2b45b","Name":"Bonjour","ContributionScope":"EnterpriseUsers","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":21},
