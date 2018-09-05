@@ -1,5 +1,7 @@
+http://localhost:8080/afpforum/api-docs
 http://158.50.163.7:55803/api-docs/
-http://127.0.0.1:8080/afpforum/registry/api/v1/list (private API)
+
+http://127.0.0.1:8080/afpforum/api/v1/registry/list (private API)
 http://127.0.0.1:XXXXX/registry/api/v1/list
 [
     {"type":"1","url":"http://158.50.163.7:56065","host":"158.50.163.7","port":"56065","pathname":"/api/v1/events","status":true,"cptr":6},
