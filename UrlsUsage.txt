@@ -37,6 +37,9 @@ http://158.50.163.7:56066/api/v1/selections?auth=905B...D96F
     {"Id":"fb613dd1-aa9e-4720-aa23-615d56208fe9","Name":"tordu","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=2CCE4986DF9874621C5C5C0EE3A5365911BE9C5ECA9261C875BC432780FE2A238F933D5027012841&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":7}
 ]
 
+
+curl -X POST "http://158.50.163.7:3000/api/v1/user/login" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"Login\": \"apulcino\", \"Password\": \"???????\"}"
+http://localhost:51920/api/v1/user/login + { Login: 'apulcino', Password: '...' }
 http://158.50.163.7:8080/afpforum/api/user/checktoken/905B1248EF82CE5F92C7CAC7755EC612191AACBB35B8949E25A2C8F89A6A85D66545B420D92843A9845E59D4F7A627468641906E7041102A8F07491AF15EF6587C3CFCCF94A3E033A4ADEED182ECD96F
 staus: 200 ||403
 http://158.50.163.7:56067/api/user/checktoken/905B1248EF82CE5F92C7CAC7755EC612191AACBB35B8949E25A2C8F89A6A85D66545B420D92843A9845E59D4F7A627468641906E7041102A8F07491AF15EF6587C3CFCCF94A3E033A4ADEED182ECD96F

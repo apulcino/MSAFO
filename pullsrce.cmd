@@ -9,6 +9,7 @@ cd .. && mkdir afoevents && cd afoevents && git init && git pull http://stid-vtf
 cd .. && mkdir afopaniers && cd afopaniers && git init && git pull http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/afopaniers
 cd .. && mkdir aforegistry && cd aforegistry && git init && git pull http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/aforegistry
 cd .. && mkdir apigateway && cd apigateway && git init && git pull http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/apigateway
+cd .. && mkdir config && cd config && git init && git pull http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/config
 
 
 rem ##########################################################
@@ -53,6 +54,12 @@ cd apigateway
 git init
 sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/apigateway
 npm install
+cd ..
+mkdir config
+cd config
+git init
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/config
+cd ..
 
 rem ##########################################################
 rem LINUX HOME
