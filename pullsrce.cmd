@@ -17,36 +17,42 @@ rem ##########################################################
 mkdir MSAFO
 cd MSAFO
 git init
-sudo git pull http://apulcino:afwinw\!se444@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/root
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/root
 mkdir library
 cd library
 git init
-sudo git pull http://apulcino:afwinw\!se444@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/library
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/library
+npm install
 cd ..
 mkdir authent
 cd authent
 git init
-sudo git pull http://apulcino:afwinw\!se444@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/authent
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/authent
+npm install
 cd ..
 mkdir afoevents
 cd afoevents
 git init
-sudo git pull http://apulcino:afwinw\!se444@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/afoevents
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/afoevents
+npm install
 cd ..
 mkdir afopaniers
 cd afopaniers
 git init
-sudo git pull http://apulcino:afwinw\!se444@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/afopaniers
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/afopaniers
+npm install
 cd ..
 mkdir aforegistry
 cd aforegistry
 git init
-sudo git pull http://apulcino:afwinw\!se444@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/aforegistry
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/aforegistry
+npm install
 cd ..
 mkdir apigateway
 cd apigateway
 git init
-sudo git pull http://apulcino:afwinw\!se444@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/apigateway
+sudo git pull http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/apigateway
+npm install
 
 rem ##########################################################
 rem LINUX HOME
