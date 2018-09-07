@@ -7,8 +7,7 @@ var makeDir = require('make-dir');
 
 //======================================================================
 //======================================================================
-var fileVers = Math.round(Date.now() / 60000);
-var CSTE_AppVersion = '2.' + fileVers;
+
 var destCP0 = './production';
 var destCP1 = destCP0 + '/afoevents';
 var destCP2 = destCP0 + '/afopaniers';
@@ -22,16 +21,15 @@ var destCP7 = destCP0 + '/library';
 // Creation du repertoire production
 //======================================================================
 gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
+    let CSTE_AppVersion;
+    function computeNewVersion() {
+        CSTE_AppVersion = '2.' + Math.round(Date.now() / 60000);
+    }
+    process.chdir('production');
     gulp.src('./*')
-        .pipe(git.add())
-        .pipe(git.commit('initial commit : ' + CSTE_AppVersion)
-            // .push('origin', 'master', function (err) {
-            //     if (err) {
-            //         console.error('git.push : error : ', err);
-            //         throw err;
-            //     }
-            // })
-        )
+        .pipe(computeNewVersion())
+    // .pipe(git.add())
+    // .pipe(git.commit(() => { return 'commit : ' + CSTE_AppVersion }))
 });
 
 //======================================================================
@@ -135,15 +133,15 @@ gulp.task('root', ['init'], () => {
 //======================================================================
 gulp.task('init', function () {
     console.log('init repos : Enter');
-    git.init({ cwd: './production' }, function (err) {
-        if (err) {
-            console.error('git.init : error : ', err);
-        }
-        git.addRemote('origin', 'http://apulcino:afwinw!se4@stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production', function (err) {
-            if (err) {
-                console.error('git.addRemote : error : ', err);
-            }
-        })
-    });
+    // git.init({ cwd: './production' }, function (err) {
+    //     if (err) {
+    //         console.error('git.init : error : ', err);
+    //     }
+    //     git.addRemote('origin', 'http://apulcino:afwinw!se4@stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production', function (err) {
+    //         if (err) {
+    //             console.error('git.addRemote : error : ', err);
+    //         }
+    //     })
+    // });
     console.log('init repos : Leave');
 });
