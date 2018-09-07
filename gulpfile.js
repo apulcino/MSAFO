@@ -2,11 +2,14 @@
 // Task GULP for AFO v2
 //======================================================================
 var gulp = require('gulp');
+var git = require('gulp-git');
 var makeDir = require('make-dir');
 
 //======================================================================
 //======================================================================
-var destCP0 = './Production';
+var fileVers = Math.round(Date.now() / 60000);
+var CSTE_AppVersion = '2.' + fileVers;
+var destCP0 = './production';
 var destCP1 = destCP0 + '/afoevents';
 var destCP2 = destCP0 + '/afopaniers';
 var destCP3 = destCP0 + '/aforegistry';
@@ -19,6 +22,16 @@ var destCP7 = destCP0 + '/library';
 // Creation du repertoire production
 //======================================================================
 gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
+    gulp.src('./*')
+        .pipe(git.add())
+        .pipe(git.commit('initial commit : ' + CSTE_AppVersion)
+            // .push('origin', 'master', function (err) {
+            //     if (err) {
+            //         console.error('git.push : error : ', err);
+            //         throw err;
+            //     }
+            // })
+        )
 });
 
 //======================================================================
@@ -113,8 +126,24 @@ gulp.task('cp7', ['root'], () => {
 });
 //======================================================================
 //======================================================================
-gulp.task('root', () => {
+gulp.task('root', ['init'], () => {
     // copier dans "production"
     console.log('root : ...');
     makeDir.sync(destCP0);
+});
+//======================================================================
+//======================================================================
+gulp.task('init', function () {
+    console.log('init repos : Enter');
+    git.init({ cwd: './production' }, function (err) {
+        if (err) {
+            console.error('git.init : error : ', err);
+        }
+        git.addRemote('origin', 'http://apulcino:afwinw!se4@stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production', function (err) {
+            if (err) {
+                console.error('git.addRemote : error : ', err);
+            }
+        })
+    });
+    console.log('init repos : Leave');
 });
