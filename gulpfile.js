@@ -20,15 +20,21 @@ var destCP7 = destCP0 + '/library';
 //======================================================================
 // Creation du repertoire production
 //======================================================================
-gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
+//gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
+gulp.task('default', ['cp1'], () => {
     let CSTE_AppVersion;
     function computeNewVersion() {
         CSTE_AppVersion = '2.' + Math.round(Date.now() / 60000);
     }
     process.chdir('production');
-    gulp.src('./*')
-        .pipe(computeNewVersion())
-    // .pipe(git.add())
+    gulp.src('./production/*')
+        //.pipe(computeNewVersion())
+        .pipe(git.add(function (err) {
+            console.error('git.add : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
     // .pipe(git.commit(() => { return 'commit : ' + CSTE_AppVersion }))
 });
 
@@ -133,15 +139,15 @@ gulp.task('root', ['init'], () => {
 //======================================================================
 gulp.task('init', function () {
     console.log('init repos : Enter');
-    // git.init({ cwd: './production' }, function (err) {
-    //     if (err) {
-    //         console.error('git.init : error : ', err);
-    //     }
-    //     git.addRemote('origin', 'http://apulcino:afwinw!se4@stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production', function (err) {
-    //         if (err) {
-    //             console.error('git.addRemote : error : ', err);
-    //         }
-    //     })
-    // });
+    git.init({ cwd: './production' }, function (err) {
+        if (err) {
+            console.error('git.init : error : ', err); git
+        }
+        git.addRemote('TFS', 'http://apulcino:afwinw!se4@stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production', function (err) {
+            if (err) {
+                console.error('git.addRemote : error : ', err);
+            }
+        })
+    });
     console.log('init repos : Leave');
 });
