@@ -1,3 +1,5 @@
+http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production
+
 rem ##########################################################
 rem Windows
 rem ##########################################################
@@ -10,6 +12,8 @@ cd .. && mkdir afopaniers && cd afopaniers && git init && git pull http://stid-v
 cd .. && mkdir aforegistry && cd aforegistry && git init && git pull http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/aforegistry
 cd .. && mkdir apigateway && cd apigateway && git init && git pull http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/apigateway
 cd .. && mkdir config && cd config && git init && git pull http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/config
+
+
 
 
 rem ##########################################################

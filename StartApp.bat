@@ -4,6 +4,8 @@ SET NODE_ENV=development
 
 start "apigateway" node ./apigateway/server.js
 start "aforegistry" node ./aforegistry/server.js
+start "authent" node ./authent/server.js
+
 start "afoevents" node ./afoevents/server.js
 
 start "aforegistry" node ./aforegistry/server.js
