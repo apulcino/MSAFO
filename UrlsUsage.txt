@@ -1,8 +1,10 @@
 http://localhost:8080/afpforum/api-docs
 http://158.50.163.7:55803/api-docs/
 
+http://158.50.163.7:3000/health/status
+
 http://127.0.0.1:8080/afpforum/api/v1/registry/list (private API)
-http://127.0.0.1:XXXXX/registry/api/v1/list
+http://127.0.0.1:XXXXX/api/v1/registry/list
 [
     {"type":"1","url":"http://158.50.163.7:56065","host":"158.50.163.7","port":"56065","pathname":"/api/v1/events","status":true,"cptr":6},
     {"type":"2","url":"http://158.50.163.7:56066","host":"158.50.163.7","port":"56066","pathname":"/api/v1/selections","status":true,"cptr":5},
@@ -49,3 +51,92 @@ http://158.50.163.7:8080/afpforum/api/user/products/Text?auth=905B1248EF82CE5F92
 [{...},{...}]
 http://158.50.163.7:56067/api/user/products/Text?auth=905B1248EF82CE5F92C7CAC7755EC612191AACBB35B8949E25A2C8F89A6A85D66545B420D92843A9845E59D4F7A627468641906E7041102A8F07491AF15EF6587C3CFCCF94A3E033A4ADEED182ECD96F
 [{...},{...}]
+
+CONSUL: https://www.consul.io/api/index.html
+GET http://127.0.0.1:8500/v1/agent/members
+GET http://127.0.0.1:8500/v1/agent/self
+GET http://127.0.0.1:8500/v1/agent/metrics
+GET http://127.0.0.1:8500/v1/agent/monitor
+    2018/09/19 15:30:42 [INFO] agent: Synced service "authent-1537351607810"
+    2018/09/19 15:30:42 [INFO] agent: Synced service "authent-1537351612284"
+    2018/09/19 15:32:21 [INFO] agent: Synced service "authent-1537351607810"
+    2018/09/19 15:32:21 [INFO] agent: Synced service "authent-1537351612284"
+
+GET http://127.0.0.1:8500/v1/agent/checks
+GET http://127.0.0.1:8500/v1/agent/services
+{"authent-1537351612284":{
+    "Kind":"",
+    "ID":"authent-1537351612284",
+    "Service":"authent-1537351612284",
+    "Tags":["authentication","v1"],
+    "Meta":{},
+    "Port":63269,
+    "Address":"158.50.163.7",
+    "Weights":{"Passing":1,"Warning":1},
+    "EnableTagOverride":false,"CreateIndex":0,"ModifyIndex":0,"ProxyDestination":"","Connect":null}}
+
+GET http://127.0.0.1:8500/v1/catalog/datacenters
+["dc1"]
+GET http://127.0.0.1:8500/v1/catalog/nodes
+[{
+    "ID":"fb7704cf-91a3-579b-6fef-a6c6dd1e5b16",
+    "Node":"SIBS-AP2",
+    "Address":"158.50.163.7",
+    "Datacenter":"dc1",
+    "TaggedAddresses":{"lan":"158.50.163.7","wan":"158.50.163.7"},
+    "Meta":{"consul-network-segment":""},
+    "CreateIndex":5,
+    "ModifyIndex":5
+    }]
+GET http://127.0.0.1:8500/v1/catalog/services
+{"authent-1537351612284":["authentication","v1"],"authent-1537369374555":["authentication","v1"],"consul":[]}
+GET http://127.0.0.1:8500/v1/catalog/service/authent-1537351612284
+[{
+    "ID":"fb7704cf-91a3-579b-6fef-a6c6dd1e5b16",
+    "Node":"SIBS-AP2",
+    "Address":"158.50.163.7",
+    "Datacenter":"dc1",
+    "TaggedAddresses":{"lan":"158.50.163.7","wan":"158.50.163.7"},
+    "NodeMeta":{"consul-network-segment":""},
+    "ServiceKind":"",
+    "ServiceID":"authent-1537351612284",
+    "ServiceName":"authent-1537351612284",
+    "ServiceTags":["authentication","v1"],
+    "ServiceAddress":"158.50.163.7",
+    "ServiceWeights":{"Passing":1,"Warning":1},
+    "ServiceMeta":{},
+    "ServicePort":63269,
+    "ServiceEnableTagOverride":false,
+    "ServiceProxyDestination":"",
+    "ServiceConnect":{"Native":false,"Proxy":null},
+    "CreateIndex":217,
+    "ModifyIndex":2050
+    }]
+
+GET http://127.0.0.1:8500/v1/catalog/node/my-node
+GET http://127.0.0.1:8500/v1/catalog/node/SIBS-AP2
+GET http://127.0.0.1:8500/v1/catalog/node/fb7704cf-91a3-579b-6fef-a6c6dd1e5b16
+{
+    "Node":{"ID":"fb7704cf-91a3-579b-6fef-a6c6dd1e5b16","Node":"SIBS-AP2","Address":"158.50.163.7","Datacenter":"dc1","TaggedAddresses":{"lan":"158.50.163.7","wan":"158.50.163.7"},"Meta":{"consul-network-segment":""},"CreateIndex":5,"ModifyIndex":5},
+    "Services":{
+        "authent-1537351612284":{"ID":"authent-1537351612284","Service":"authent-1537351612284","Tags":["authentication","v1"],"Address":"158.50.163.7","Meta":null,"Port":63269,"Weights":{"Passing":1,"Warning":1},"EnableTagOverride":false,"ProxyDestination":"","Connect":{"Native":false,"Proxy":null},"CreateIndex":217,"ModifyIndex":2074},
+        "authent-1537369374555":{"ID":"authent-1537369374555","Service":"authent-1537369374555","Tags":["authentication","v1"],"Address":"158.50.163.7","Meta":null,"Port":64462,"Weights":{"Passing":1,"Warning":1},"EnableTagOverride":false,"ProxyDestination":"","Connect":{"Native":false,"Proxy":null},"CreateIndex":2042,"ModifyIndex":2073},
+        "consul":{"ID":"consul","Service":"consul","Tags":[],"Address":"","Meta":null,"Port":8300,"Weights":{"Passing":1,"Warning":1},"EnableTagOverride":false,"ProxyDestination":"","Connect":{"Native":false,"Proxy":null},"CreateIndex":6,"ModifyIndex":6}
+    }
+}
+
+GET http://127.0.0.1:8500/v1/coordinate/datacenters
+[{"Datacenter":"dc1","AreaID":"wan","Coordinates":[{"Node":"SIBS-AP2","Segment":"","Coord":{"Vec":[0,0,0,0,0,0,0,0],"Error":1.5,"Adjustment":0,"Height":0.00001}}]}]
+GET http://127.0.0.1:8500/v1/coordinate/nodes
+[{"Node":"SIBS-AP2","Segment":"","Coord":{"Vec":[0,0,0,0,0,0,0,0],"Error":1.5,"Adjustment":0,"Height":0.00001}}]
+
+GET http://127.0.0.1:8500/v1/health/node/SIBS-AP2
+[
+     {"Node":"SIBS-AP2","CheckID":"serfHealth","Name":"Serf Health Status","Status":"passing","Notes":"","Output":"Agent alive and reachable","ServiceID":"","ServiceName":"","ServiceTags":[],"Definition":{},"CreateIndex":6,"ModifyIndex":6}
+]
+[
+    {"Node":"SIBS-AP2","CheckID":"serfHealth","Name":"Serf Health Status","Status":"passing","Notes":"","Output":"Agent alive and reachable","ServiceID":"","ServiceName":"","ServiceTags":[],"Definition":{},"CreateIndex":6,"ModifyIndex":6},
+    {"Node":"SIBS-AP2","CheckID":"service:authent-1537372129129","Name":"Service 'authent-1537372129129' check","Status":"passing","Notes":"","Output":"HTTP GET http://158.50.163.7:52753/health/status: 200 OK Output: {\"isSuccess\":true}","ServiceID":"authent-1537372129129","ServiceName":"authent-1537372129129","ServiceTags":["authentication","v1"],"Definition":{},"CreateIndex":2241,"ModifyIndex":2242}
+]
+
+GET http://127.0.0.1:8500/v1/health/state/passing
