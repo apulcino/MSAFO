@@ -61,7 +61,7 @@ gulp.task('create-new-tag', function (done) {
         if (error) {
             return done(error);
         }
-        git.push('TFS', 'master', { args: '--tags' }, done);
+        git.push('github', 'master', { args: '--tags' }, done);
     });
 });
 
