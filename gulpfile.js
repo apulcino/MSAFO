@@ -8,7 +8,7 @@ var makeDir = require('make-dir');
 //======================================================================
 //======================================================================
 
-var destCP0 = '..';
+var destCP0 = '.';
 var destCP1 = destCP0 + '/afoevents';
 var destCP2 = destCP0 + '/afopaniers';
 var destCP3 = destCP0 + '/aforegistry';
@@ -39,8 +39,10 @@ gulp.task('first', function (done) {
 //======================================================================
 //======================================================================
 gulp.task('commit-changes', function () {
-    return gulp.src('.')
-        .pipe(git.add())
+    return gulp.src([
+        './production/**/*.js',
+        './production/**/*.json'])
+        .pipe(git.add({ args: '-f' }))
         .pipe(git.commit('commit version : ' + CSTE_AppVersion));
 });
 
@@ -52,14 +54,14 @@ gulp.task('push-changes', function (done) {
 
 //======================================================================
 //======================================================================
-// gulp.task('create-new-tag', function (done) {
-//     git.tag(version, 'Created Tag for version: ' + version, function (error) {
-//         if (error) {
-//             return done(error);
-//         }
-//         git.push('TFS', 'master', { args: '--tags' }, done);
-//     });
-// });
+gulp.task('create-new-tag', function (done) {
+    git.tag(CSTE_AppVersion, 'Created Tag for version: ' + CSTE_AppVersion, function (error) {
+        if (error) {
+            return done(error);
+        }
+        git.push('TFS', 'master', { args: '--tags' }, done);
+    });
+});
 
 //======================================================================
 // afoevents
@@ -162,7 +164,7 @@ gulp.task('default', gulp.series(
     'cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7',
     'commit-changes',
     'push-changes',
-    //'create-new-tag',
+    'create-new-tag',
     function (done) {
         console.log('All tasks done !');
         done();
