@@ -8,7 +8,7 @@ var makeDir = require('make-dir');
 //======================================================================
 //======================================================================
 
-var destCP0 = '.';
+var destCP0 = '..';
 var destCP1 = destCP0 + '/afoevents';
 var destCP2 = destCP0 + '/afopaniers';
 var destCP3 = destCP0 + '/aforegistry';
@@ -22,11 +22,11 @@ function computeNewVersion() {
 }
 let CSTE_AppVersion = computeNewVersion();
 
-function getPackageJsonVersion() {
-    // We parse the json file instead of using require because require caches
-    // multiple calls so the version number won't be updated
-    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
-};
+// function getPackageJsonVersion() {
+//     // We parse the json file instead of using require because require caches
+//     // multiple calls so the version number won't be updated
+//     return JSON.parse(fs.readFileSync('../package.json', 'utf8')).version;
+// };
 
 //======================================================================
 //======================================================================
@@ -44,10 +44,14 @@ gulp.task('commit-changes', function () {
         .pipe(git.commit('commit version : ' + CSTE_AppVersion));
 });
 
-// gulp.task('push-changes', function (done) {
-//     git.push('TFS', 'master', done);
-// });
+//======================================================================
+//======================================================================
+gulp.task('push-changes', function (done) {
+    git.push('TFS', 'master', done);
+});
 
+//======================================================================
+//======================================================================
 // gulp.task('create-new-tag', function (done) {
 //     git.tag(version, 'Created Tag for version: ' + version, function (error) {
 //         if (error) {
@@ -157,7 +161,7 @@ gulp.task('default', gulp.series(
     'first',
     'cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7',
     'commit-changes',
-    //'push-changes',
+    'push-changes',
     //'create-new-tag',
     function (done) {
         console.log('All tasks done !');
