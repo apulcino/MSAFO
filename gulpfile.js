@@ -39,6 +39,7 @@ gulp.task('first', function (done) {
 //======================================================================
 //======================================================================
 gulp.task('commit-changes', function () {
+    process.chdir(destCP0);
     return gulp.src([
         './production/**/*.cmd',
         './production/**/*.js',
@@ -50,8 +51,7 @@ gulp.task('commit-changes', function () {
 //======================================================================
 //======================================================================
 gulp.task('push-changes', function (done) {
-    process.chdir('./production');
-    git.push('github', 'master', done);
+    git.push('TFS', 'master', done);
 });
 
 //======================================================================
@@ -61,7 +61,7 @@ gulp.task('create-new-tag', function (done) {
         if (error) {
             return done(error);
         }
-        git.push('github', 'master', { args: '--tags' }, done);
+        git.push('TFS', 'master', { args: '--tags' }, done);
     });
 });
 
