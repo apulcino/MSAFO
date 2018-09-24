@@ -126,8 +126,8 @@ gulp.task('cp5', () => {
     console.log('cp5 : ...');
     makeDir.sync(destCP5);
     return gulp.src([
-        '../authent/*.js',
-        '../authent/*.json',
+        './authent/*.js',
+        './authent/*.json',
     ])
         .pipe(gulp.dest(destCP5))
 });
