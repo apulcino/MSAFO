@@ -51,7 +51,7 @@ gulp.task('commit-changes', function () {
 //======================================================================
 gulp.task('push-changes', function (done) {
     process.chdir('./production');
-    git.push('TFS', 'master', done);
+    git.push('github', 'master', done);
 });
 
 //======================================================================
