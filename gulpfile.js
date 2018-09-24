@@ -72,8 +72,8 @@ gulp.task('cp1', (done) => {
     console.log('cp1 : ...');
     makeDir.sync(destCP1);
     return gulp.src([
-        '../afoevents/*.js',
-        '../afoevents/*.json',
+        './afoevents/*.js',
+        './afoevents/*.json',
     ])
         .pipe(gulp.dest(destCP1))
 });
@@ -86,8 +86,8 @@ gulp.task('cp2', () => {
     console.log('cp2 : ...');
     makeDir.sync(destCP2);
     return gulp.src([
-        '../afopaniers/*.js',
-        '../afopaniers/*.json',
+        './afopaniers/*.js',
+        './afopaniers/*.json',
     ])
         .pipe(gulp.dest(destCP2))
 });
@@ -100,8 +100,8 @@ gulp.task('cp3', () => {
     console.log('cp3 : ...');
     makeDir.sync(destCP3);
     return gulp.src([
-        '../aforegistry/*.js',
-        '../aforegistry/*.json',
+        './aforegistry/*.js',
+        './aforegistry/*.json',
     ])
         .pipe(gulp.dest(destCP3))
 });
@@ -113,8 +113,8 @@ gulp.task('cp4', () => {
     console.log('cp4 : ...');
     makeDir.sync(destCP4);
     return gulp.src([
-        '../apigateway/*.js',
-        '../apigateway/*.json',
+        './apigateway/*.js',
+        './apigateway/*.json',
     ])
         .pipe(gulp.dest(destCP4))
 });
@@ -139,7 +139,7 @@ gulp.task('cp6', () => {
     console.log('cp6 : ...');
     makeDir.sync(destCP6);
     return gulp.src([
-        '../config/*.json'
+        './config/*.json'
     ])
         .pipe(gulp.dest(destCP6))
 });
@@ -151,8 +151,8 @@ gulp.task('cp7', () => {
     console.log('cp7 : ...');
     makeDir.sync(destCP7);
     return gulp.src([
-        '../library/*.js',
-        '../library/*.json',
+        './library/*.js',
+        './library/*.json',
     ])
         .pipe(gulp.dest(destCP7))
 });
