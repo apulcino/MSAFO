@@ -8,7 +8,7 @@ var makeDir = require('make-dir');
 //======================================================================
 //======================================================================
 
-var destCP0 = '.';
+var destCP0 = './production';
 var destCP1 = destCP0 + '/afoevents';
 var destCP2 = destCP0 + '/afopaniers';
 var destCP3 = destCP0 + '/aforegistry';
