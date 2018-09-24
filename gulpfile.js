@@ -40,6 +40,7 @@ gulp.task('first', function (done) {
 //======================================================================
 gulp.task('commit-changes', function () {
     return gulp.src([
+        './production/**/*.cmd',
         './production/**/*.js',
         './production/**/*.json'])
         .pipe(git.add({ args: '-f' }))
