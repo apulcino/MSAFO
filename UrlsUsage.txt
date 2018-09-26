@@ -1,7 +1,6 @@
-http://localhost:8080/afpforum/api-docs
+http://localhost:8080/api-docs
 http://158.50.163.7:55803/api-docs/
-
-http://158.50.163.7:3000/health/status
+http://158.50.163.7:8080/health/status
 
 http://127.0.0.1:8080/afpforum/api/v1/registry/list (private API)
 http://127.0.0.1:XXXXX/api/v1/registry/list
