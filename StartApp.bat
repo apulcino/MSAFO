@@ -1,3 +1,5 @@
+../../consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=127.0.0.1 &
+
 export NODE_ENV=production
 SET NODE_ENV=production
 SET NODE_ENV=development

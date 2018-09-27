@@ -7,3 +7,4 @@ library
 config
 node_modules
 consul-data
+production
