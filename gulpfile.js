@@ -20,7 +20,7 @@ var destCP7 = destCP0 + '/library';
 function computeNewVersion() {
     return '2.' + Math.round(Date.now() / 60000);
 }
-let CSTE_AppVersion = computeNewVersion();
+var CSTE_AppVersion = computeNewVersion();
 
 // function getPackageJsonVersion() {
 //     // We parse the json file instead of using require because require caches

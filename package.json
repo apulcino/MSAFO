@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "eslint": "^5.6.1",
+    "eslint-config-es2015": "^1.1.0",
     "eslint-config-strongloop": "^2.1.0",
     "gulp": "^4.0.0"
   },
