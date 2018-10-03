@@ -113,13 +113,18 @@ sudo git remote add origin ../../../Dropbox/GITRepos/MSAFO/apigateway
 rem ##########################################################
 rem LINUX WORK
 rem ##########################################################
-cd ..
+
 cd library
 npm install
 cd ..
 cd authent
 npm install
 cd ..
+cd apigateway
+npm install
+cd ..
+
+
 cd afoevents
 npm install
 cd ..
@@ -127,9 +132,6 @@ cd afopaniers
 npm install
 cd ..
 cd aforegistry
-npm install
-cd ..
-cd apigateway
 npm install
 cd ..
 
