@@ -1,16 +1,6 @@
-npm install --save-dev eslint eslint-config-es2015
-node node_modules/eslint/bin/eslint.js --init
+ps axl | grep node
 
-echo {"extends": "es2015"} > .eslintrc.json
-
-{
-    ...
-    "scripts": {
-        "pretest": "eslint --ignore-path .gitignore ."
-    }
-    ...
-}
-
+http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/production
 http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production
 http://stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/production
 
