@@ -1,6 +1,8 @@
 ps axl | grep node
 
 http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/production
+cd production
+
 http://stid-vtfs2013.afp.local:8080/tfs/SICL/MSAFO/_git/production
 http://stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/production
 
