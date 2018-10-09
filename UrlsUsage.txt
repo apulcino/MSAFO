@@ -3,34 +3,28 @@ node --inspect --debug-brk ./authent/server.js
 
 http://localhost:8080/api-docs
 http://158.50.163.7:8080/health/status
+
+
+Authent:
 http://158.50.163.7:8080/afpforum/authent/v1/user/login
 
-http://158.50.163.7:55803/api-docs/
-
-http://127.0.0.1:8080/afpforum/api/v1/registry/list (private API)
-http://127.0.0.1:XXXXX/api/v1/registry/list
-[
-    {"type":"1","url":"http://158.50.163.7:56065","host":"158.50.163.7","port":"56065","pathname":"/api/v1/events","status":true,"cptr":6},
-    {"type":"2","url":"http://158.50.163.7:56066","host":"158.50.163.7","port":"56066","pathname":"/api/v1/selections","status":true,"cptr":5},
-    {"type":"3","url":"http://158.50.163.7:56067","host":"158.50.163.7","port":"56067","pathname":"/api/v1/user","status":true,"cptr":5}
-]
-
-
-http://158.50.163.7:8080/afpforum/api/v1/events?lang=fr
+Events:
+http://158.50.163.7:8080/afpforum/afoevents/v1/events/list?lang=fr
+http://localhost:3001/api/v1/events/list?lang=fr
+http://158.50.163.7:8080/afpforum/afoevents/v1/events/list?lang=fr
 []
-http://158.50.163.7:XXXXX/api/v1/events?lang=fr
+http://158.50.163.7:XXXXX/api/v1/events/list?lang=fr
 []
-
-http://158.50.163.7:8080/afpforum/api/v1/events/events-by-sequence/CUY01?lang=fr
+http://158.50.163.7:8080/afpforum/afoevents/v1/events/events-by-sequence/CUY01?lang=fr
 [{"sequenceId":"CUY01","title":"Sanctions force unified Korea teams to go no-brand at Asiad","important":false}]
-http://158.50.163.7:56065/api/v1/events/events-by-sequence/CUY01?lang=fr
+http://158.50.163.7:3100/api/v1/events/events-by-sequence/CUY01?lang=fr
 [{"sequenceId":"CUY01","title":"Sanctions force unified Korea teams to go no-brand at Asiad","important":false}]
 
 
-http://158.50.163.7:8080/afpforum/api/v1/selections?auth=905B...D96F
+Paniers:
+http://158.50.163.7:8080/afpforum/selections/v1/selections?auth=905B...D96F
 [...]
-
-http://158.50.163.7:56066/api/v1/selections?auth=905B...D96F
+http://158.50.163.7:3200/api/v1/selections?auth=905B...D96F
 [
     {"Id":"d4f23f5d-69fc-4d29-84d7-053ac10c16af","Name":"default","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=326D21F9A539FD7222DA6C17918C40DF61DBF3D13E2ABEBEEB5A7C7F5ECABA70E9C1D04E2E1299A0&mui=1","IsDeletable":false,"IsOwner":true,"DocumentCount":167},
     {"Id":"1d8116d2-2ae4-47ea-a970-99adf2ddacc7","Name":"aa","ContributionScope":"OwnerOnly","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":159},{"Id":"66c57b6d-6e92-4a02-b96e-a97ac4e2b45b","Name":"Bonjour","ContributionScope":"EnterpriseUsers","PublicLink":null,"IsDeletable":true,"IsOwner":true,"DocumentCount":21},
@@ -42,6 +36,10 @@ http://158.50.163.7:56066/api/v1/selections?auth=905B...D96F
     {"Id":"b68ea8f3-f208-44e0-922f-6b0130b3bac3","Name":"textes","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=78CC5297BFFC3ADD1A523A18403E40B4F9309A38E7E68880479C11D652FCB8923EB55F908455C817&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":3},
     {"Id":"fb613dd1-aa9e-4720-aa23-615d56208fe9","Name":"tordu","ContributionScope":"OwnerOnly","PublicLink":"http://www.afpforum.com/AFPForum/AuthFiles/Redirect.aspx?ext=2CCE4986DF9874621C5C5C0EE3A5365911BE9C5ECA9261C875BC432780FE2A238F933D5027012841&mui=1","IsDeletable":true,"IsOwner":true,"DocumentCount":7}
 ]
+
+
+
+
 
 
 curl -X POST "http://158.50.163.7:3000/api/v1/user/login" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"Login\": \"apulcino\", \"Password\": \"???????\"}"

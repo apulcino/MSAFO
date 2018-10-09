@@ -3,13 +3,26 @@
         {
             "name": "apigateway",
             "script": "./apigateway/server.js",
-            "exec_mode": "fork_mode",
+            "exec_mode": "cluster",
+            "instances": "2"
         },
         {
             "name": "authent",
             "script": "./authent/server.js",
-            "exec_mode": "fork_mode",
-            "instances": "max"
+            "exec_mode": "cluster",
+            "instances": "4"
+        },
+        {
+            "name": "events",
+            "script": "./afoevents/server.js",
+            "exec_mode": "cluster",
+            "instances": "4"
+        },
+        {
+            "name": "selections",
+            "script": "./afopaniers/server.js",
+            "exec_mode": "cluster",
+            "instances": "4"
         }
     ]
 }
