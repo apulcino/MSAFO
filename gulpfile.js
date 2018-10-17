@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var git = require('gulp-git');
 var makeDir = require('make-dir');
+var replace = require('gulp-string-replace');
 
 //======================================================================
 //======================================================================
@@ -17,6 +18,18 @@ var destCP5 = destCP0 + '/authent';
 var destCP6 = destCP0 + '/config';
 var destCP7 = destCP0 + '/library';
 
+//======================================================================
+//======================================================================
+function CopyLibraryDir(destDir) {
+    return gulp.src([
+        './library/*.js',
+        './library/*.json'
+    ])
+        .pipe(gulp.dest(destDir + '/library'))
+}
+
+//======================================================================
+//======================================================================
 function computeNewVersion() {
     return '2.' + Math.round(Date.now() / 60000);
 }
@@ -113,10 +126,12 @@ gulp.task('cp4', () => {
     // copier dans "production"
     console.log('cp4 : ...');
     makeDir.sync(destCP4);
+    CopyLibraryDir(destCP4);
     return gulp.src([
         './apigateway/*.js',
         './apigateway/*.json',
     ])
+        .pipe(replace('../library/', './library/'))
         .pipe(gulp.dest(destCP4))
 });
 //======================================================================

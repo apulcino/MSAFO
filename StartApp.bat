@@ -1,3 +1,5 @@
+e:/consul/consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=127.0.0.1 &
+
 ../../consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=127.0.0.1 &
 
 pm2 start ./apigateway/server.js --name apigateway

@@ -1,9 +1,34 @@
-node --inspect --debug-brk ./apigateway/server.js
-node --inspect --debug-brk ./authent/server.js
+node --inspect-brk ./apigateway/server.js
+node --inspect-brk ./authent/server.js
 
+------------------------------------------------------------------------------------
+18/10/2018
+------------------------------------------------------------------------------------
+http://msafo:8080
+http://msafo:8080/api-docs
+
+http://msafo.srv.afoevents.v1:8080/api-docs
+
+http://msafo.srv.afoevents.v1:8080/events/events-by-sequence/CUY01?lang=fr
+http://158.50.163.7:3100/events/events-by-sequence/CUY01?lang=fr
+
+http://msafo.srv.afoevents.v1:8080/events/list?lang=fr
+http://158.50.163.7:3100/events/list?lang=fr
+
+http://msafo.srv.authent.v1:8080/user/login
+http://158.50.163.7:3000/user/login
+
+http://msafo.srv.selections.v1:8080/selections?auth=905B...D96F
+http://158.50.163.7:3200/selections?auth=E086
+
+http://msafo.srv.selections.v1:8080/selections/d4f23f5d-69fc-4d29-84d7-053ac10c16af?auth=E086...70E7
+http://158.50.163.7:3200/selections/d4f23f5d-69fc-4d29-84d7-053ac10c16af?auth=E086
+
+------------------------------------------------------------------------------------
+01/10/2018
+------------------------------------------------------------------------------------
 http://localhost:8080/api-docs
 http://158.50.163.7:8080/health/status
-
 
 Authent:
 http://158.50.163.7:8080/afpforum/authent/v1/user/login
