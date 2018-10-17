@@ -4,6 +4,12 @@ node --inspect-brk ./authent/server.js
 ------------------------------------------------------------------------------------
 18/10/2018
 ------------------------------------------------------------------------------------
+Fichier host
+127.0.0.1 msafo
+127.0.0.1 msafo.srv.authent.v1
+127.0.0.1 msafo.srv.afoevents.v1
+127.0.0.1 msafo.srv.selections.v1
+
 http://msafo:8080
 http://msafo:8080/api-docs
 
