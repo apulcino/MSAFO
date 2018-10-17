@@ -54,10 +54,13 @@ gulp.task('first', function (done) {
 gulp.task('commit-changes', function () {
     process.chdir(destCP0);
     return gulp.src([
-        './production/**/*.cmd',
-        './production/**/*.js',
-        './production/**/*.json'])
-        .pipe(git.add({ args: '-f' }))
+        '*.cmd',
+        '*.js',
+        '*.json',
+        '**/library/*.js',
+        '**/library/*.json'
+    ])
+        .pipe(git.add())
         .pipe(git.commit('commit version : ' + CSTE_AppVersion));
 });
 
@@ -85,10 +88,12 @@ gulp.task('cp1', (done) => {
     // copier dans "production"
     console.log('cp1 : ...');
     makeDir.sync(destCP1);
+    CopyLibraryDir(destCP1);
     return gulp.src([
         './afoevents/*.js',
         './afoevents/*.json',
     ])
+        .pipe(replace('../library/', './library/'))
         .pipe(gulp.dest(destCP1))
 });
 
@@ -99,26 +104,29 @@ gulp.task('cp2', () => {
     // copier dans "production"
     console.log('cp2 : ...');
     makeDir.sync(destCP2);
+    CopyLibraryDir(destCP2);
     return gulp.src([
         './afopaniers/*.js',
         './afopaniers/*.json',
     ])
+        .pipe(replace('../library/', './library/'))
         .pipe(gulp.dest(destCP2))
 });
 
 //======================================================================
 // aforegistry
 //======================================================================
-gulp.task('cp3', () => {
-    // copier dans "production"
-    console.log('cp3 : ...');
-    makeDir.sync(destCP3);
-    return gulp.src([
-        './aforegistry/*.js',
-        './aforegistry/*.json',
-    ])
-        .pipe(gulp.dest(destCP3))
-});
+// gulp.task('cp3', () => {
+//     // // copier dans "production"
+//     // console.log('cp3 : ...');
+//     // makeDir.sync(destCP3);
+//     // CopyLibraryDir(destCP3);
+//     // return gulp.src([
+//     //     './aforegistry/*.js',
+//     //     './aforegistry/*.json',
+//     // ])
+//     //     .pipe(gulp.dest(destCP3))
+// });
 //======================================================================
 // apigateway
 //======================================================================
@@ -141,10 +149,12 @@ gulp.task('cp5', () => {
     // copier dans "production"
     console.log('cp5 : ...');
     makeDir.sync(destCP5);
+    CopyLibraryDir(destCP5);
     return gulp.src([
         './authent/*.js',
         './authent/*.json',
     ])
+        .pipe(replace('../library/', './library/'))
         .pipe(gulp.dest(destCP5))
 });
 //======================================================================
@@ -162,23 +172,23 @@ gulp.task('cp6', () => {
 //======================================================================
 // library
 //======================================================================
-gulp.task('cp7', () => {
-    // copier dans "production"
-    console.log('cp7 : ...');
-    makeDir.sync(destCP7);
-    return gulp.src([
-        './library/*.js',
-        './library/*.json',
-    ])
-        .pipe(gulp.dest(destCP7))
-});
+// gulp.task('cp7', () => {
+//     // copier dans "production"
+//     // console.log('cp7 : ...');
+//     // makeDir.sync(destCP7);
+//     // return gulp.src([
+//     //     './library/*.js',
+//     //     './library/*.json',
+//     // ])
+//     //     .pipe(gulp.dest(destCP7))
+// });
 
 //======================================================================
 // Creation du repertoire production
 //======================================================================
 gulp.task('default', gulp.series(
     'first',
-    'cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7',
+    'cp1', 'cp2', 'cp4', 'cp5', 'cp6',
     'commit-changes',
     'push-changes',
     'create-new-tag',

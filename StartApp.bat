@@ -39,17 +39,20 @@ ssh root@vspar-afo-dev-01
 
 git clone http://apulcino:afwinw\!se4@stid-vtfs2013:8080/tfs/SICL/MSAFO/_git/production
 cd production
+cd apigateway
+npm install
 cd library
 npm install
 cd ..
-cd apigateway
+cd ..
+cd afoevents
+npm install
+cd library
 npm install
 cd ..
-cd authent
-npm install
 cd ..
 pm2 start ./apigateway/server.js --name apigateway -i 2
-pm2 start ./authent/server.js --name authent -i 4
+pm2 start ./afoevents/server.js --name afoevents -i 4
 
 pm2 start pm2start.json
 
